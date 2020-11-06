@@ -1,26 +1,28 @@
 import logo from "./logo.svg";
 import "./App.css";
 import Button from "@material-ui/core/Button";
+import TextField from "@material-ui/core/TextField";
+import Autocomplete from "@material-ui/lab/Autocomplete";
+import top100Films from "./markers.js";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Button variant="outlined" color="primary">
-          Hello World
-        </Button>
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <Autocomplete
+          id="combo-box-demo"
+          fullWidth
+          options={top100Films}
+          getOptionLabel={option => option.marker}
+          renderInput={params => (
+            <TextField
+              {...params}
+              label="Select a Location"
+              variant="outlined"
+              fullWidth
+            />
+          )}
+        />
       </header>
     </div>
   );
