@@ -15,6 +15,10 @@ nvm use node 15
 
 npm install -g create-react-app
 
+# Create a react app:
+
+create-react-app weather_app
+
 # Installall o material ui and icons:
 
 npm install @material-ui/core
