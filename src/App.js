@@ -3,6 +3,7 @@ import "./App.css";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+
 import top100Films from "./markers.js";
 
 function App() {
@@ -19,9 +20,9 @@ function App() {
               {...params}
               label="Select a Location"
               variant="outlined"
-              fullWidth
             />
           )}
+          onChange={(event, value) => console.log(value)}
         />
       </header>
     </div>
