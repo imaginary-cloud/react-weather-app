@@ -1,3 +1,25 @@
+# Check version: react needs to be >=16
+
+npm view node version
+npm view react version
+
+# Update node.js version:
+
+nvm install node --reinstall-packages-from=node
+
+# Use right version of node
+
+nvm use node 15
+
+# Instalall create-react-app:
+
+npm install -g create-react-app
+
+# Installall o material ui and icons:
+
+npm install @material-ui/core
+npm install @material-ui/icons
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
