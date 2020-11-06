@@ -3,10 +3,13 @@ import "./App.css";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
+import React, { useState } from "react";
 
 import top100Films from "./markers.js";
 
 function App() {
+  const [location, setLocation] = useState("");
+
   return (
     <div className="App">
       <header className="App-header">
@@ -22,7 +25,7 @@ function App() {
               variant="outlined"
             />
           )}
-          onChange={(event, value) => console.log(value)}
+          onChange={(event, value) => setLocation(value.marker)}
         />
       </header>
     </div>
