@@ -19,7 +19,7 @@ npm install -g create-react-app
 
 create-react-app weather_app
 
-# Installall o material ui and icons:
+# Install all o material ui and icons:
 
 npm install @material-ui/core
 npm install @material-ui/icons
@@ -27,6 +27,12 @@ npm install @material-ui/lab
 
 #instalar react developer tools
 https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en
+
+# Important links for the workshop
+
+Autocomplete - https://material-ui.com/components/autocomplete
+Grid Component - https://material-ui.com/components/grid/
+Card Component - https://material-ui.com/components/cards/
 
 # Getting Started with Create React App
 
