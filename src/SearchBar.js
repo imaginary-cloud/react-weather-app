@@ -4,7 +4,7 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 
 import top100Films from "./markers.js";
 
-function SearchBar() {
+function SearchBar(props) {
   return (
     <Autocomplete
       id="combo-box-demo"
@@ -14,7 +14,7 @@ function SearchBar() {
       renderInput={params => (
         <TextField {...params} label="Select a Location" variant="outlined" />
       )}
-      onChange={(event, value) => console.log(value.marker)}
+      onChange={(event, value) => props.onChange(value.marker)}
     />
   );
 }

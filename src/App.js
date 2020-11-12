@@ -11,7 +11,7 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <SearchBar></SearchBar>
+        <SearchBar onChange={setLocation}></SearchBar>
         <Grid container spacing={3}>
           <Grid item xs={4}>
             <Paper>xs=4</Paper>
