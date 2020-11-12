@@ -4,7 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar.js";
-import WeatherCard from "./Card.js";
+import WeatherCard from "./WeatherCard.js";
 
 function App() {
   const [location, setLocation] = useState("");
