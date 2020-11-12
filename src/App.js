@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar.js";
 import WeatherCard from "./WeatherCard.js";
+import FullWeatherCard from "./FullWeatherCard.js";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -33,7 +34,7 @@ function App() {
               </Grid>
               {/* info 1 day */}
               <Grid item xs={12}>
-                <Paper>xs=12</Paper>
+                <FullWeatherCard></FullWeatherCard>
               </Grid>
             </Grid>
           </Grid>
