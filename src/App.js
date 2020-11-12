@@ -23,7 +23,13 @@ function App() {
             <Grid container spacing={3}>
               {/* cards 5 days */}
               <Grid item xs={12}>
-                <WeatherCard></WeatherCard>
+                <Grid container justify="space-between">
+                  <WeatherCard></WeatherCard>
+                  <WeatherCard></WeatherCard>
+                  <WeatherCard></WeatherCard>
+                  <WeatherCard></WeatherCard>
+                  <WeatherCard></WeatherCard>
+                </Grid>
               </Grid>
               {/* info 1 day */}
               <Grid item xs={12}>
