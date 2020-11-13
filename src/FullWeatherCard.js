@@ -82,7 +82,12 @@ function FullWeatherCard() {
               1030
             </Typography>
           </Grid>
-          <InfoDisplay></InfoDisplay>
+          <InfoDisplay
+            title="Humidity"
+            value="71"
+            size="4"
+            align="center"
+          ></InfoDisplay>
         </Grid>
       </CardContent>
     </Card>

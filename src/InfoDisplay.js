@@ -16,12 +16,12 @@ function InfoDisplay(props) {
   const classes = useStyles();
 
   return (
-    <Grid item xs={4} className={classes.pos}>
+    <Grid item xs={props.size} className={classes.pos}>
       <Typography className={classes.title} variant="p" component="p">
-        Humidity
+        {props.title}
       </Typography>
-      <Typography variant="p" component="p">
-        70
+      <Typography variant="p" component="p" align={props.align}>
+        {props.value}
       </Typography>
     </Grid>
   );
