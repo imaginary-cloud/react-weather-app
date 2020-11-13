@@ -6,6 +6,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
+import InfoDisplay from "./InfoDisplay.js";
 
 const useStyles = makeStyles({
   bullet: {
@@ -81,14 +82,7 @@ function FullWeatherCard() {
               1030
             </Typography>
           </Grid>
-          <Grid item xs={4} className={classes.pos}>
-            <Typography variant="p" component="p" align="center">
-              Humidity
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              70
-            </Typography>
-          </Grid>
+          <InfoDisplay></InfoDisplay>
         </Grid>
       </CardContent>
     </Card>
