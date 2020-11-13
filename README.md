@@ -15,6 +15,10 @@ nvm use node 15
 
 npm install -g create-react-app
 
+# Install momento for data aspects
+
+npm install moment --save
+
 # Create a react app:
 
 create-react-app weather_app
