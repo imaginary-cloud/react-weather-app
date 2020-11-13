@@ -7,10 +7,7 @@ import SearchBar from "./SearchBar.js";
 import WeatherCard from "./WeatherCard.js";
 import FullWeatherCard from "./FullWeatherCard.js";
 import data from "./data/example_data_location_request.json";
-
-const newdata = data.consolidated_weather.slice(0, 5).map(data => {
-  return <WeatherCard data={data} key={data.id}></WeatherCard>;
-});
+import WeatherDisplay from "./WeatherDisplay.js";
 
 function App() {
   const [location, setLocation] = useState("");
@@ -25,20 +22,7 @@ function App() {
             <Paper>xs=4</Paper>
           </Grid>
           {/* weather info */}
-          <Grid item xs={8}>
-            <Grid container spacing={3}>
-              {/* cards 5 days */}
-              <Grid item xs={12}>
-                <Grid container justify="space-between">
-                  {newdata}
-                </Grid>
-              </Grid>
-              {/* info 1 day */}
-              <Grid item xs={12}>
-                <FullWeatherCard></FullWeatherCard>
-              </Grid>
-            </Grid>
-          </Grid>
+          <WeatherDisplay></WeatherDisplay>
         </Grid>
       </header>
     </div>
