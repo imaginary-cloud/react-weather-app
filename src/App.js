@@ -9,7 +9,7 @@ import FullWeatherCard from "./FullWeatherCard.js";
 import data from "./data/example_data_location_request.json";
 
 const newdata = data.consolidated_weather.slice(0, 5).map(data => {
-  return <WeatherCard data={data}></WeatherCard>;
+  return <WeatherCard data={data} key={data.id}></WeatherCard>;
 });
 
 function App() {
