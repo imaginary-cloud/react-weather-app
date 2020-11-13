@@ -29,28 +29,14 @@ function WeatherCard() {
     <Grid item xs={2}>
       <Card className={classes.root}>
         <CardContent>
-          <Typography
-            className={classes.title}
-            color="textSecondary"
-            gutterBottom
-          >
-            Word of the Day
-          </Typography>
           <Typography variant="h5" component="h2">
-            be{bull}nev{bull}o{bull}lent
+            13 November
           </Typography>
-          <Typography className={classes.pos} color="textSecondary">
-            adjective
-          </Typography>
-          <Typography variant="body2" component="p">
-            well meaning and kindly.
-            <br />
-            {'"a benevolent smile"'}
+          {/* Icon space */}
+          <Typography variant="h5" component="h3">
+            15 ºC
           </Typography>
         </CardContent>
-        <CardActions>
-          <Button size="small">Learn More</Button>
-        </CardActions>
       </Card>
     </Grid>
   );
