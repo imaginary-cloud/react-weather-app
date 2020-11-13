@@ -6,6 +6,11 @@ import React, { useState } from "react";
 import SearchBar from "./SearchBar.js";
 import WeatherCard from "./WeatherCard.js";
 import FullWeatherCard from "./FullWeatherCard.js";
+import data from "./data/example_data_location_request.json";
+
+const newdata = data.consolidated_weather.slice(0, 5).map(data => {
+  return <WeatherCard></WeatherCard>;
+});
 
 function App() {
   const [location, setLocation] = useState("");
@@ -25,11 +30,7 @@ function App() {
               {/* cards 5 days */}
               <Grid item xs={12}>
                 <Grid container justify="space-between">
-                  <WeatherCard></WeatherCard>
-                  <WeatherCard></WeatherCard>
-                  <WeatherCard></WeatherCard>
-                  <WeatherCard></WeatherCard>
-                  <WeatherCard></WeatherCard>
+                  {newdata}
                 </Grid>
               </Grid>
               {/* info 1 day */}
