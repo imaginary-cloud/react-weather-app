@@ -7,27 +7,10 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-const useStyles = makeStyles({
-  bullet: {
-    display: "inline-block",
-    margin: "0 2px",
-    transform: "scale(0.8)"
-  },
-  title: {
-    fontSize: 14
-  },
-  pos: {
-    marginBottom: 12
-  }
-});
-
 function WeatherCard() {
-  const classes = useStyles();
-  const bull = <span className={classes.bullet}>•</span>;
-
   return (
     <Grid item xs={2}>
-      <Card className={classes.root}>
+      <Card className="root">
         <CardContent>
           <Typography variant="h5" component="h2">
             13 November

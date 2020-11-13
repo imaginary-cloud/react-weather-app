@@ -17,7 +17,12 @@ function InfoDisplay(props) {
 
   return (
     <Grid item xs={props.size} className={classes.pos}>
-      <Typography className={classes.title} variant="p" component="p">
+      <Typography
+        className={classes.title}
+        variant="p"
+        component="p"
+        align={props.align}
+      >
         {props.title}
       </Typography>
       <Typography variant="p" component="p" align={props.align}>
