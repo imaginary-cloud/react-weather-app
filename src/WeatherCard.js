@@ -7,17 +7,17 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 
-function WeatherCard() {
+function WeatherCard(props) {
   return (
     <Grid item xs={2}>
       <Card className="root">
         <CardContent>
           <Typography variant="h5" component="h2">
-            13 November
+            {props.data.applicable_date}
           </Typography>
           {/* Icon space */}
           <Typography variant="h5" component="h3">
-            15 ºC
+            1{props.data.the_temp} ºC
           </Typography>
         </CardContent>
       </Card>
