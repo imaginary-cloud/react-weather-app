@@ -27,13 +27,13 @@ function FullWeatherCard() {
             <InfoDisplay
               title="Max temperature"
               value="16"
-              size="12"
+              size={12}
               align="left"
             ></InfoDisplay>
             <InfoDisplay
               title="Min temperature"
               value="10"
-              size="12"
+              size={12}
               align="left"
             ></InfoDisplay>
           </Grid>
@@ -43,31 +43,31 @@ function FullWeatherCard() {
           <InfoDisplay
             title="Wind speed"
             value="5.7"
-            size="4"
+            size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction"
             value="96.7"
-            size="4"
+            size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction compass"
             value="East"
-            size="4"
+            size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Air pressure"
             value="1030"
-            size="4"
+            size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Humidity"
             value="71"
-            size="4"
+            size={4}
             align="center"
           ></InfoDisplay>
         </Grid>

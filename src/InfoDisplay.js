@@ -17,15 +17,10 @@ function InfoDisplay(props) {
 
   return (
     <Grid item xs={props.size} className={classes.pos}>
-      <Typography
-        className={classes.title}
-        variant="p"
-        component="p"
-        align={props.align}
-      >
+      <Typography className={classes.title} component="p" align={props.align}>
         {props.title}
       </Typography>
-      <Typography variant="p" component="p" align={props.align}>
+      <Typography component="p" align={props.align}>
         {props.value}
       </Typography>
     </Grid>
