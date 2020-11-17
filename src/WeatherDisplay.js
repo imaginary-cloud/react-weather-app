@@ -5,7 +5,9 @@ import WeatherCard from "./WeatherCard.js";
 import data from "./data/example_data_location_request.json";
 
 function WeatherDisplay(props) {
-  const [selectedData, setSelectedData] = useState([]);
+  const [selectedData, setSelectedData] = useState(
+    data.consolidated_weather[0]
+  );
 
   const weatherdata = data.consolidated_weather.slice(0, 5).map(data => {
     return (
