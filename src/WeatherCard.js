@@ -13,7 +13,7 @@ function WeatherCard(props) {
 
   return (
     <Grid item xs={2}>
-      <Card className="root">
+      <Card className="root" style={{ cursor: "pointer" }}>
         <CardContent onClick={setSelectedData}>
           <Typography variant="h5" component="h2">
             {Moment(props.data.applicable_date).format("DD MMMM")}
