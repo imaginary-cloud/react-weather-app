@@ -38,40 +38,40 @@ Note: The `-g` flag lets npm know to install it globally.
 
 ## Create a React application
 ```bash
-create-react-app weather_app
+create-react-app weather-app
 ```
 
 And we have just created a new React project, that is almost ready to run.
-Please take a few minutes browsing the generated files inside weather_app folder, mainly:
-* `package.json` - npm relies on this file for all of its iteration, from dependencies and available scripts;
+Please take a few minutes browsing the generated files inside weather-app folder, mainly:
+* `package.json` - npm relies on this file for all of its iteration, from dependencies to available scripts;
 * `./src/App.js` - The main component of the generated application;
 * `./src/index.js` - Root of our web application, where `App` is mounted;
 * `README.me` - Description of the generated project.
 
 ## Launching the application
 ### Installing dependencies
-Before we launch our application, ensure that you have React v16 installed. By default, `create-react-app` creates a React v17 application. This version doesn't bring anything _new_, so we won't miss much by downgrading to React v16, which we need in order to use Material-UI.
+Before we launch our application, ensure that you have React v16 installed. By default, `create-react-app` creates a React v17 application. This version doesn't bring anything _new_, so we won't miss anything by downgrading to React v16, which we need in order to use Material-UI.
 ```bash
 npm install react@^16.14.0 react-dom@16.14.0
 ```
 
 ### Lunching our react application
-We can run the application on development mode.
+We can now run the application on development mode.
 ```bash
 npm start
 ```
 The web application should be now running and accessible on a browser through [http://localhost:3000](http://localhost:3000).
 
-The page will reload if you make edits and will show any errors in the browser's console.
+The page will reload if you make any changes and will show any errors in the browser's console.
 
 
 # A few goodies
-Before we start hacking away our weather application, we will take advantage of a few packages, that will speed up our development.
+Before we start hacking away our weather application, we will take advantage of a few packages that will speed up our development.
 
-## Install **Moment** to handle dates
+## Install **Moment**
 [Moment](https://momentjs.com/) is the most used package to handle and format dates.
 ```bash
-npm install moment --save
+npm install moment
 ```
 
 Usage example
@@ -111,6 +111,7 @@ const useStyles = makeStyles({
 
 export default function SimpleCard() {
   const classes = useStyles();
+  
   return (
     <Card>
       <CardContent>
@@ -147,7 +148,7 @@ Our weather app will consist of an [SPA](https://en.wikipedia.org/wiki/Single-pa
 
 Users should be allowed to search for a location. This search will guide our users, displaying possible locations containing the users' query as he types.
 
-Upon selecting a location, he should be able to check the the current forecast for the next 5 days and the details of today's weather report.
+Upon selecting a location, he should be able to check the forecast for the next 5 days and the details of today's weather report.
 
 We will rely on [MetaWeather](https://www.metaweather.com/api/)'s data. It provides endpoints to search for a location from a provided query string and another to fetch the weather report of a location, through its [WOEID](https://en.wikipedia.org/wiki/WOEID) - _Where on Earth ID_.
 We have sampled the response for a possible search and location's forecast to simplify our development.
@@ -199,9 +200,9 @@ This section should display the details of today's forecast, with all the inform
 
 # Next steps
 ## Fetch data directly from the API
-This is where it gets complicated. Until now, our forecast comes only from the sample files, but ideally, we should be fetching the data directly from [MetaWeather](https://www.metaweather.com/), but this is where it gets complicated.
+Until now, our forecast comes only from the sample files, but ideally, we should be fetching the data directly from [MetaWeather](https://www.metaweather.com/), but this is where it gets complicated.
 
-MetaWeather API doesn't have CORS enabled, so browser will refuse to fetch data. As a work around, we can use [`local-cors-proxy`](https://github.com/garmeeh/local-cors-proxy#readme) as a workaround.
+MetaWeather API doesn't have [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) enabled, so our browser will refuse to fetch data from it. As a work around, we can use [`local-cors-proxy`](https://github.com/garmeeh/local-cors-proxy#readme) to proxy the request and trick our browser.
 ```bash
 npm install -g local-cors-proxy
 lcp --origin http://localhost:3000 --proxyUrl https://www.metaweather.com
