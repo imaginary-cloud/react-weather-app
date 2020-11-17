@@ -28,7 +28,7 @@ function WeatherDisplay(props) {
         </Grid>
         {/* info 1 day */}
         <Grid item xs={12}>
-          <FullWeatherCard></FullWeatherCard>
+          <FullWeatherCard selectedData={selectedData}></FullWeatherCard>
         </Grid>
       </Grid>
     </Grid>

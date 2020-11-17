@@ -8,7 +8,7 @@ import Moment from "moment";
 
 function WeatherCard(props) {
   function setSelectedData() {
-    props.setSelectedData(props.data.applicable_date);
+    props.setSelectedData(props.data);
   }
 
   return (

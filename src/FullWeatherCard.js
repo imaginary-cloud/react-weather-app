@@ -7,32 +7,33 @@ import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import InfoDisplay from "./InfoDisplay.js";
+import Moment from "moment";
 
-function FullWeatherCard() {
+function FullWeatherCard({ selectedData }) {
   return (
     <Card className="root">
       <CardContent>
         <Grid container>
           <Grid item xs={12}>
             <Typography variant="h3" component="h3" align="center">
-              13 November 2020
+              {Moment(selectedData.applicable_date).format("DD MMMM YYYY")}
             </Typography>
           </Grid>
           <Grid item xs={3}>
             <Typography variant="h4" component="h3" align="right">
-              15 ºC
+              {selectedData.the_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
           <Grid item xs={3}>
             <InfoDisplay
               title="Max temperature"
-              value="16"
+              value={selectedData.max_temp.toFixed(2)}
               size={12}
               align="left"
             ></InfoDisplay>
             <InfoDisplay
               title="Min temperature"
-              value="10"
+              value={selectedData.min_temp.toFixed(2)}
               size={12}
               align="left"
             ></InfoDisplay>
@@ -42,31 +43,31 @@ function FullWeatherCard() {
           </Grid>
           <InfoDisplay
             title="Wind speed"
-            value="5.7"
+            value={selectedData.wind_speed.toFixed(2)}
             size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction"
-            value="96.7"
+            value={selectedData.wind_direction.toFixed(2)}
             size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction compass"
-            value="East"
+            value={selectedData.wind_direction_compass}
             size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Air pressure"
-            value="1030"
+            value={selectedData.air_pressure.toFixed(2)}
             size={4}
             align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Humidity"
-            value="71"
+            value={selectedData.humidity.toFixed(2)}
             size={4}
             align="center"
           ></InfoDisplay>
