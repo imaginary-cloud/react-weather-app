@@ -228,7 +228,7 @@ export default function ForecastLocationDetails({ woeid }) {
     isError,
     error
   } = useQuery(
-    ['getLocationForecastDetails', woeid],)
+    ['getLocationForecastDetails', woeid],
     () =>  {
       return axios.get(`http://localhost:8010/proxy/api/location/${woeid}/`)
       .then(({ data } = {}) => data)
