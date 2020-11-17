@@ -14,6 +14,12 @@ const useStyles = makeStyles({
     height: 200,
     marginBottom: 40,
     marginTop: 20
+  },
+  title: {
+    margin: 20
+  },
+  temp: {
+    paddingRight: 30
   }
 });
 
@@ -30,30 +36,41 @@ function FullWeatherCard({ selectedData }) {
       <CardContent>
         <Grid container>
           <Grid item xs={12}>
-            <Typography variant="h3" component="h3" align="center">
+            <Typography
+              variant="h3"
+              component="h3"
+              align="center"
+              className={classes.title}
+            >
               {Moment(selectedData.applicable_date).format("DD MMMM YYYY")}
             </Typography>
           </Grid>
-          <Grid item xs={3}>
-            <Typography variant="h4" component="h3" align="right">
+          <Grid
+            container
+            justify="flex-end"
+            alignItems="center"
+            className={classes.temp}
+            xs={4}
+          >
+            <Typography variant="h2" component="h3" align="right">
               {selectedData.the_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
-          <Grid item xs={3}>
-            <InfoDisplay
-              title="Max temperature"
-              value={selectedData.max_temp.toFixed(2)}
-              size={12}
-              align="left"
-            ></InfoDisplay>
-            <InfoDisplay
-              title="Min temperature"
-              value={selectedData.min_temp.toFixed(2)}
-              size={12}
-              align="left"
-            ></InfoDisplay>
+          <Grid
+            xs={3}
+            container
+            direction="column"
+            justify="center"
+            alignItems="flex-start"
+          >
+            <Typography variant="h5" component="p">
+              Max: {selectedData.max_temp.toFixed(2)} ºC
+            </Typography>
+            <Typography variant="h5" component="p">
+              Min: {selectedData.min_temp.toFixed(2)} ºC
+            </Typography>
           </Grid>
-          <Grid item xs={6}>
+          <Grid item xs={5}>
             <img
               className={classes.icon}
               src={imageLink}
@@ -64,31 +81,26 @@ function FullWeatherCard({ selectedData }) {
             title="Wind speed"
             value={selectedData.wind_speed.toFixed(2)}
             size={4}
-            align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction"
             value={selectedData.wind_direction.toFixed(2)}
             size={4}
-            align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Wind direction compass"
             value={selectedData.wind_direction_compass}
             size={4}
-            align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Air pressure"
             value={selectedData.air_pressure.toFixed(2)}
             size={4}
-            align="center"
           ></InfoDisplay>
           <InfoDisplay
             title="Humidity"
             value={selectedData.humidity.toFixed(2)}
             size={4}
-            align="center"
           ></InfoDisplay>
         </Grid>
       </CardContent>

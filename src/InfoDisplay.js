@@ -5,10 +5,13 @@ import Grid from "@material-ui/core/Grid";
 
 const useStyles = makeStyles({
   title: {
-    fontSize: 14
+    fontSize: 16
+  },
+  value: {
+    fontSize: 20
   },
   pos: {
-    marginBottom: 12
+    marginBottom: 20
   }
 });
 
@@ -17,10 +20,10 @@ function InfoDisplay(props) {
 
   return (
     <Grid item xs={props.size} className={classes.pos}>
-      <Typography className={classes.title} component="p" align={props.align}>
+      <Typography className={classes.title} component="p" align="center">
         {props.title}
       </Typography>
-      <Typography component="p" align={props.align}>
+      <Typography className={classes.value} component="p" align="center">
         {props.value}
       </Typography>
     </Grid>
