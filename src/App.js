@@ -7,7 +7,7 @@ import data from "./data/example_data_location_request.json";
 import WeatherDisplay from "./WeatherDisplay.js";
 
 function App() {
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState([]);
 
   return (
     <div className="App">
@@ -19,7 +19,9 @@ function App() {
             <Paper>xs=4</Paper>
           </Grid>
           {/* weather info */}
-          <WeatherDisplay></WeatherDisplay>
+          <WeatherDisplay
+            woeid={location ? location.woeid : ""}
+          ></WeatherDisplay>
         </Grid>
       </header>
     </div>

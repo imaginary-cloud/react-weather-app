@@ -4,8 +4,6 @@ import Autocomplete from "@material-ui/lab/Autocomplete";
 import axios from "axios";
 import { useQuery } from "react-query";
 
-import top100Films from "./markers.js";
-
 function SearchBar(props) {
   const [input, setInput] = useState("");
 
