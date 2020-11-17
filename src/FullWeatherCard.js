@@ -47,6 +47,7 @@ function FullWeatherCard({ selectedData }) {
           </Grid>
           <Grid
             container
+            item
             justify="flex-end"
             alignItems="center"
             className={classes.temp}
@@ -58,6 +59,7 @@ function FullWeatherCard({ selectedData }) {
           </Grid>
           <Grid
             xs={3}
+            item
             container
             direction="column"
             justify="center"

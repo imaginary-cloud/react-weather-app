@@ -1,11 +1,8 @@
-import logo from "./logo.svg";
 import "./App.css";
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar.js";
-import WeatherCard from "./WeatherCard.js";
-import FullWeatherCard from "./FullWeatherCard.js";
 import data from "./data/example_data_location_request.json";
 import WeatherDisplay from "./WeatherDisplay.js";
 
