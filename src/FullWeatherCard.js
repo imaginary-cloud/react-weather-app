@@ -9,7 +9,22 @@ import Grid from "@material-ui/core/Grid";
 import InfoDisplay from "./InfoDisplay.js";
 import Moment from "moment";
 
+const useStyles = makeStyles({
+  icon: {
+    height: 200,
+    marginBottom: 40,
+    marginTop: 20
+  }
+});
+
 function FullWeatherCard({ selectedData }) {
+  const classes = useStyles();
+
+  const imageLink =
+    "https://www.metaweather.com/static/img/weather/png/" +
+    selectedData.weather_state_abbr +
+    ".png";
+
   return (
     <Card className="root">
       <CardContent>
@@ -39,7 +54,11 @@ function FullWeatherCard({ selectedData }) {
             ></InfoDisplay>
           </Grid>
           <Grid item xs={6}>
-            {/* Icon space */}
+            <img
+              className={classes.icon}
+              src={imageLink}
+              alt={selectedData.weather_state_name}
+            />
           </Grid>
           <InfoDisplay
             title="Wind speed"
