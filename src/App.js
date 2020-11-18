@@ -1,13 +1,19 @@
 import "./App.css";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import React, { useState } from "react";
 import SearchBar from "./SearchBar.js";
-import data from "./data/example_data_location_request.json";
 import WeatherDisplay from "./WeatherDisplay.js";
+import LocationMap from "./Map.js";
 
 function App() {
   const [location, setLocation] = useState([]);
+
+  const prev_latt_long = location
+    ? location.latt_long
+      ? location.latt_long.split(",")
+      : ["38.7223", "-9.1393"]
+    : ["38.7223", "-9.1393"];
+  const long_latt = [Number(prev_latt_long[1]), Number(prev_latt_long[0])];
 
   return (
     <div className="App">
@@ -16,7 +22,10 @@ function App() {
         <Grid container spacing={3}>
           {/* map */}
           <Grid item xs={4}>
-            <Paper>xs=4</Paper>
+            <LocationMap
+              point={long_latt}
+              location={location ? location.title : "You're here"}
+            ></LocationMap>
           </Grid>
           {/* weather info */}
           <WeatherDisplay
