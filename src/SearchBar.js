@@ -7,7 +7,8 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles({
   label: {
-    marginBottom: 20
+    marginBottom: 20,
+    backgroundColor: "white"
   }
 });
 
@@ -38,7 +39,7 @@ function SearchBar(props) {
         <TextField
           {...params}
           label="Select a Location"
-          variant="outlined"
+          variant="filled"
           onChange={(event, value) => setInput(event.target.value)}
         />
       )}
