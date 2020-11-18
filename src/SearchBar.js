@@ -3,9 +3,17 @@ import TextField from "@material-ui/core/TextField";
 import Autocomplete from "@material-ui/lab/Autocomplete";
 import axios from "axios";
 import { useQuery } from "react-query";
+import { makeStyles } from "@material-ui/core/styles";
+
+const useStyles = makeStyles({
+  label: {
+    marginBottom: 20
+  }
+});
 
 function SearchBar(props) {
   const [input, setInput] = useState("");
+  const classes = useStyles();
 
   const { data, isLoading, isError, error } = useQuery(
     ["getLocationInfo", input],
@@ -35,6 +43,7 @@ function SearchBar(props) {
         />
       )}
       onChange={(event, value) => props.onChange(value)}
+      className={classes.label}
     />
   );
 }

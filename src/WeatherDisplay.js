@@ -12,7 +12,7 @@ const useStyles = makeStyles({
     marginTop: 20
   },
   displaySpace: {
-    height: 842.93
+    height: 865.93
   }
 });
 
