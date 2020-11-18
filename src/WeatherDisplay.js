@@ -1,13 +1,23 @@
 import React, { useState } from "react";
+import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import FullWeatherCard from "./FullWeatherCard.js";
 import WeatherCard from "./WeatherCard.js";
-import data_local from "./data/example_data_location_request.json";
 import axios from "axios";
 import { useQuery } from "react-query";
 import Typography from "@material-ui/core/Typography";
 
+const useStyles = makeStyles({
+  cardsSpace: {
+    marginTop: 20
+  },
+  displaySpace: {
+    height: 842.93
+  }
+});
+
 function WeatherDisplay(props) {
+  const classes = useStyles();
   const [selectedData, setSelectedData] = useState([]);
 
   const { data, isLoading, isError, error } = useQuery(
@@ -53,20 +63,11 @@ function WeatherDisplay(props) {
     );
   } else {
     return (
-      <Grid item xs={8}>
-        <Grid container spacing={3}>
-          {/* cards 5 days */}
-          <Grid item xs={12}>
-            <Typography variant="h3" component="h3" align="center">
-              Please select a location
-            </Typography>
-          </Grid>
-          {/* info 1 day */}
-          <Grid item xs={12}>
-            <Typography variant="h3" component="h3" align="center">
-              Please select a location
-            </Typography>
-          </Grid>
+      <Grid item xs={8} container spacing={3} className={classes.displaySpace}>
+        <Grid item xs={12} className={classes.cardsSpace}>
+          <Typography variant="h3" component="h3" align="center">
+            Please select a location
+          </Typography>
         </Grid>
       </Grid>
     );
