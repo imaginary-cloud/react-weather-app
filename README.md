@@ -111,7 +111,7 @@ const useStyles = makeStyles({
 
 export default function SimpleCard() {
   const classes = useStyles();
-  
+
   return (
     <Card>
       <CardContent>
@@ -251,5 +251,56 @@ export default function ForecastLocationDetails({ woeid }) {
       <h2>{`${data.consolidated_weather[0].the_temp}º`}</h2>
     </>
   );
+}
+```
+
+## Setting up a map
+A map would be a great addition to our weather app. Since MetaWeather provides the latitude and longitude of a location, it would be nice to focus that location on a map.
+
+It would be a bit awkward to make plans for a nice weekend BBQ based on the forecast for [Lisbon, Florida](https://en.wikipedia.org/wiki/Lisbon,_Florida) or some other [Lisbon](https://en.wikipedia.org/wiki/Lisbon_(disambiguation)#United_States), just in the USA.
+
+As you can imagine, there are quite a few components at our disposal, and we suggest the usage of [react-mapbox-gl](https://github.com/alex3165/react-mapbox-gl).
+It is quite simple to integrate and to display a point at a certain latitude and longitude.
+Feel free to play with their [demos](https://alex3165.github.io/react-mapbox-gl/demos) to get a feeling about how it works and look around their [documentation](https://alex3165.github.io/react-mapbox-gl/documentation).
+The most important components to focus upon a location would be `ReactMapboxGl`, `Layer` and `Feature`.
+
+We can install it into our project with:
+```bash
+npm install react-mapbox-gl mapbox-gl
+```
+
+
+In order to use react-mapbox-gl, we will need an accessToken, that we already requested:
+
+```
+pk.eyJ1IjoicHNpbHZhaWMiLCJhIjoiY2tobmI5YTRlMDAzbTMxcGV6NDk3ZHNrdCJ9.mpgz1tj9j8cLrhrsZ5hlhw
+```
+
+The snippet bellow we displays how we can create a Map, with the provide accessToken, that will focus upon Lisbon, Portugal and place a small marker:
+
+```JavaScript
+
+import ReactMapboxGl, { Layer, Feature } from 'react-mapbox-gl';
+import 'mapbox-gl/dist/mapbox-gl.css';
+
+const Map = ReactMapboxGl({
+  accessToken:
+    'pk.eyJ1IjoicHNpbHZhaWMiLCJhIjoiY2tobmI5YTRlMDAzbTMxcGV6NDk3ZHNrdCJ9.mpgz1tj9j8cLrhrsZ5hlhw'
+});
+
+function MyMap() {
+  return (
+    <Map
+      style="mapbox://styles/mapbox/streets-v9"
+      containerStyle={{
+        height: '100%',
+        width: '100%'
+      }}
+    >
+      <Layer type="symbol" id="marker" layout={{ 'icon-image': 'marker-15' }}>
+        <Feature coordinates={[38.725670, -9.150370]} />
+      </Layer>
+    </Map>
+  )
 }
 ```
