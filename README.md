@@ -27,19 +27,17 @@ nvm use 15.2.0
 node --version
 > v15.2.0
 ```
+### Install npx
+```bash
+npm i npx
+```
 
 # Bootstrapping
-## Globally install **create-react-app** through npm
-[`create-react-app`](https://reactjs.org/docs/create-a-new-react-app.html) is a Node package curated by Facebook, that can be used to create a new React project, with the required support scripts and dependencies.
-```bash
-npm install -g create-react-app
-```
-Note: The `-g` flag lets npm know to install it globally.
-
 ## Create a React application
 ```bash
-create-react-app weather-app
+npx create-react-app weather-app
 ```
+Note: On the first time npx will ask you to install the ***create-react-app*** package. Just click ***y*** and it will install and create your first react app.
 
 And we have just created a new React project, that is almost ready to run.
 Please take a few minutes browsing the generated files inside weather-app folder, mainly:
