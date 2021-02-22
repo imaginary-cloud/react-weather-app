@@ -29,7 +29,7 @@ node --version
 ```
 ### Install npx
 ```bash
-npm i npx
+npm install -g npx
 ```
 
 # Bootstrapping
