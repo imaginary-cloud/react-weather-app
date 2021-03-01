@@ -3,7 +3,7 @@
 * [Setup](#setup) - General instructions to install Node v15;
 * [Bootstrapping](#bootstrapping) - Instructions to get the application running;
 * [A few goodies](#a-few-goodies) - Brief list of useful packages;
-* [Building a Weather app](#building-a-weather-app) - Detailed description of the desired functionallities;
+* [Building a Weather app](#building-a-weather-app) - Detailed description of the desired functionalities;
 * [Next steps](#next-steps) - Suggestions of further challenges to enhance our Weather app.
 
 # Setup
@@ -53,7 +53,7 @@ Before we launch our application, ensure that you have React v16 installed. By d
 npm install react@^16.14.0 react-dom@16.14.0
 ```
 
-### Lunching our react application
+### Launching our react application
 We can now run the application on development mode.
 ```bash
 npm start
@@ -134,7 +134,7 @@ export default function SimpleCard() {
 };
 ```
 
-Material-UI brings along dozens of components that cover a fairly amount of scenarios and the following root components will be quite useful during our development:
+Material-UI brings along dozens of components that cover a fairly large amount of scenarios and the following root components will be quite useful during our development:
 
 * [Autocomplete](https://material-ui.com/components/autocomplete) - Input with suggestions;
 * [Card](https://material-ui.com/components/cards/) - Material-UI's root Card component;
@@ -161,12 +161,12 @@ They can be imported and used in the application:
 import searchSample from "./sample/search.json";
 ```
 
-The next sections we will further detail the behavior and role of each element of our interface and supply tips in how to proceed.
+The next sections we will further detail the behavior and role of each element of our interface and supply tips on how to proceed.
 These tips are only tips and nothing more, feel free to explore Material-UI's components to shape the interface to suit your taste.
 
 
 ## Setting up a layout
-Before jumping into more concrete blocks of our application we have to setup a general layout, it will work as the foundations of the interface and split it into sections where we will place the other elements.
+Before jumping into more concrete blocks of our application we have to set up a general layout, it will work as the foundations of the interface and split it into sections where we will place the other elements.
 
 [Grid](https://material-ui.com/components/grid/) from Material-UI is quite handy to achieve such behavior. It creates a wrapper container with 12 columns, allowing a quick establishment of sections with a fixed set of columns for a specified resolution. Grid will adjust its sub-components to fit the current resolution following the provided props.
 
@@ -174,12 +174,12 @@ Before jumping into more concrete blocks of our application we have to setup a g
 ## Searching for a location
 This element consist of an input to type a location.
 
-It will guide our user, displaying suggestions of locations that suit the provide input.
+It will guide our user, displaying suggestions of locations that suit the provided input.
 
 [Material-UI's Autocomplete](https://material-ui.com/components/autocomplete) component suits this task. It is capable of providing suggestions from a existing source and filtering them to match the input. Also provides a mechanism to establish the behavior for click actions.
 
 ## Displaying the forecast for the next few days
-Upon selecting a location trough the search, this section should render a set o elements to display the forecast for the next 5 days.
+Upon selecting a location through the search, this section should render a set o elements to display the forecast for the next 5 days.
 
 This should display a summary, with the following information:
 
@@ -200,7 +200,7 @@ This section should display the details of today's forecast, with all the inform
 ## Fetch data directly from the API
 Until now, our forecast comes only from the sample files, but ideally, we should be fetching the data directly from [MetaWeather](https://www.metaweather.com/), but this is where it gets complicated.
 
-MetaWeather API doesn't have [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) enabled, so our browser will refuse to fetch data from it. As a work around, we can use [`local-cors-proxy`](https://github.com/garmeeh/local-cors-proxy#readme) to proxy the request and trick our browser.
+MetaWeather API doesn't have [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) enabled, so our browser will refuse to fetch data from it. As a workaround, we can use [`local-cors-proxy`](https://github.com/garmeeh/local-cors-proxy#readme) to proxy the request and trick our browser.
 ```bash
 npm install -g local-cors-proxy
 lcp --origin http://localhost:3000 --proxyUrl https://www.metaweather.com
