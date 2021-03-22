@@ -23,9 +23,13 @@ export default function WeatherCard(props) {
     props.data.weather_state_abbr +
     ".png";
 
+  function setSelectedData() {
+    props.setSelectedData(props.data);
+  }
+
   return (
-    <Card className={classes.root}>
-      <CardContent>
+    <Card className={classes.root} style={{ cursor: "pointer" }}>
+      <CardContent onClick={setSelectedData}>
         <Typography variant="h5" component="h2">
           {Moment(props.data.applicable_date).format("DD MMMM")}
         </Typography>
