@@ -211,7 +211,7 @@ In order to perform request to MetaWeather, [axios](https://github.com/axios/axi
 [react-query](https://github.com/tannerlinsley/react-query#visit-react-querytanstackcom-for-docs-guides-api-and-more) streamlines the usage of axios, so that it works as any other hook.
 
 ```bash
-npm install axios react-query
+npm install axios^0.21 react-query@^2
 ```
 
 Simple example, performing a request to MetaWeather to fetch a locations data through its _woeid_:
