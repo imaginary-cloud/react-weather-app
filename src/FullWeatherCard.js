@@ -4,47 +4,59 @@ import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
+import Moment from "moment";
 
 const useStyles = makeStyles({
   root: {
     minWidth: 275
+  },
+  icon: {
+    height: "150px",
+    margin: "20px 0"
   }
 });
 
-export default function FullWeatherCard() {
+export default function FullWeatherCard({ selectedData }) {
   const classes = useStyles();
-
+  const imageLink =
+    "https://www.metaweather.com/static/img/weather/png/" +
+    selectedData.weather_state_abbr +
+    ".png";
   return (
     <Card className={classes.root}>
       <CardContent>
         <Grid container>
           <Grid item xs={12}>
             <Typography variant="h3" component="h3" align="center">
-              13 November 2020
+              {Moment(selectedData.applicable_date).format("DD MMMM YYYY")}
             </Typography>
           </Grid>
           <Grid item xs={3}>
             <Typography variant="h4" component="h3" align="right">
-              15 ºC
+              {selectedData.the_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
           <Grid item xs={3}>
             <Typography variant="p" component="p" align="left">
-              Max - 16
+              Max: {selectedData.max_temp.toFixed(2)} ºC
             </Typography>
             <Typography variant="p" component="p" align="left">
-              Min - 10
+              Min: {selectedData.min_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
           <Grid item xs={6}>
-            {/* Icon space */}
+            <img
+              className={classes.icon}
+              src={imageLink}
+              alt={selectedData.weather_state_name}
+            />
           </Grid>
           <Grid item xs={4}>
             <Typography variant="p" component="p" align="center">
               Wind speed
             </Typography>
             <Typography variant="p" component="p" align="center">
-              5.7
+              {selectedData.wind_speed.toFixed(2)}
             </Typography>
           </Grid>
           <Grid item xs={4}>
@@ -52,7 +64,7 @@ export default function FullWeatherCard() {
               Wind direction
             </Typography>
             <Typography variant="p" component="p" align="center">
-              96.7
+              {selectedData.wind_direction.toFixed(2)}
             </Typography>
           </Grid>
           <Grid item xs={4}>
@@ -60,7 +72,7 @@ export default function FullWeatherCard() {
               Wind direction compass
             </Typography>
             <Typography variant="p" component="p" align="center">
-              East
+              {selectedData.wind_direction_compass}
             </Typography>
           </Grid>
           <Grid item xs={4}>
@@ -68,7 +80,7 @@ export default function FullWeatherCard() {
               Air pressure
             </Typography>
             <Typography variant="p" component="p" align="center">
-              1030
+              {selectedData.air_pressure.toFixed(2)}
             </Typography>
           </Grid>
           <Grid item xs={4} className={classes.pos}>
@@ -76,7 +88,7 @@ export default function FullWeatherCard() {
               Humidity
             </Typography>
             <Typography variant="p" component="p" align="center">
-              70
+              {selectedData.humidity.toFixed(2)}
             </Typography>
           </Grid>
         </Grid>
