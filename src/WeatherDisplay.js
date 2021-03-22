@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
@@ -14,6 +14,9 @@ const useStyles = makeStyles(theme => ({
 
 export default function WeatherDisplay() {
   const classes = useStyles();
+  const [selectedData, setSelectedData] = useState(
+    data.consolidated_weather[0]
+  );
 
   const weatherdata = data.consolidated_weather.slice(0, 5).map(data => {
     return <WeatherCard key={data.id} data={data}></WeatherCard>;
@@ -30,7 +33,7 @@ export default function WeatherDisplay() {
         {weatherdata}
       </Grid>
       <Grid item xs={12}>
-        <FullWeatherCard></FullWeatherCard>
+        <FullWeatherCard selectedData={selectedData}></FullWeatherCard>
       </Grid>
     </Grid>
   );
