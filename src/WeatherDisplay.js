@@ -23,6 +23,10 @@ export default function WeatherDisplay() {
       </Grid>
       <Grid item xs={12}>
         <WeatherCard></WeatherCard>
+        <WeatherCard></WeatherCard>
+        <WeatherCard></WeatherCard>
+        <WeatherCard></WeatherCard>
+        <WeatherCard></WeatherCard>
       </Grid>
       <Grid item xs={12}>
         <Paper className={classes.paper}>xs=12</Paper>
