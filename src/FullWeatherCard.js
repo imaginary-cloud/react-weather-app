@@ -13,6 +13,12 @@ const useStyles = makeStyles({
   icon: {
     height: "150px",
     margin: "20px 0"
+  },
+  title: {
+    margin: 20
+  },
+  temp: {
+    paddingRight: 30
   }
 });
 
@@ -27,16 +33,35 @@ export default function FullWeatherCard({ selectedData }) {
       <CardContent>
         <Grid container>
           <Grid item xs={12}>
-            <Typography variant="h3" component="h3" align="center">
+            <Typography
+              variant="h3"
+              component="h3"
+              align="center"
+              className={classes.title}
+            >
               {Moment(selectedData.applicable_date).format("DD MMMM YYYY")}
             </Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid
+            item
+            container
+            xs={3}
+            justify="flex-end"
+            alignItems="center"
+            className={classes.temp}
+          >
             <Typography variant="h4" component="h3" align="right">
               {selectedData.the_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
-          <Grid item xs={3}>
+          <Grid
+            item
+            xs={3}
+            container
+            direction="column"
+            justify="center"
+            alignItems="flex-start"
+          >
             <Typography variant="p" component="p" align="left">
               Max: {selectedData.max_temp.toFixed(2)} ºC
             </Typography>
