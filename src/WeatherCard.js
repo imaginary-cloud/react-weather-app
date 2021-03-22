@@ -15,19 +15,19 @@ const useStyles = makeStyles({
   }
 });
 
-export default function WeatherCard() {
+export default function WeatherCard(props) {
   const classes = useStyles();
 
   return (
     <Card className={classes.root}>
       <CardContent>
         <Typography variant="h5" component="h2">
-          22 March
+          {props.data.applicable_date}
         </Typography>
         {/* image */}
         <div className={classes.icon}></div>
         <Typography variant="h5" component="h2">
-          18 ºC
+          {props.data.the_temp} ºC
         </Typography>
       </CardContent>
     </Card>

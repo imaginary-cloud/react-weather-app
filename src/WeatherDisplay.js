@@ -16,7 +16,7 @@ export default function WeatherDisplay() {
   const classes = useStyles();
 
   const weatherdata = data.consolidated_weather.slice(0, 5).map(data => {
-    return <WeatherCard></WeatherCard>;
+    return <WeatherCard data={data}></WeatherCard>;
   });
 
   return (
