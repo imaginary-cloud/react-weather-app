@@ -19,7 +19,13 @@ export default function WeatherDisplay() {
   );
 
   const weatherdata = data.consolidated_weather.slice(0, 5).map(data => {
-    return <WeatherCard key={data.id} data={data}></WeatherCard>;
+    return (
+      <WeatherCard
+        key={data.id}
+        data={data}
+        setSelectedData={setSelectedData}
+      ></WeatherCard>
+    );
   });
 
   return (
