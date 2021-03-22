@@ -10,12 +10,18 @@ const useStyles = makeStyles({
     minWidth: 275
   },
   icon: {
-    height: "100px"
+    height: "100px",
+    margin: "20px 0"
   }
 });
 
 export default function WeatherCard(props) {
   const classes = useStyles();
+
+  const imageLink =
+    "https://www.metaweather.com/static/img/weather/png/" +
+    props.data.weather_state_abbr +
+    ".png";
 
   return (
     <Card className={classes.root}>
@@ -23,8 +29,11 @@ export default function WeatherCard(props) {
         <Typography variant="h5" component="h2">
           {Moment(props.data.applicable_date).format("DD MMMM")}
         </Typography>
-        {/* image */}
-        <div className={classes.icon}></div>
+        <img
+          className={classes.icon}
+          src={imageLink}
+          alt={props.data.weather_state_name}
+        />
         <Typography variant="h5" component="h2">
           {props.data.the_temp.toFixed(2)} ºC
         </Typography>
