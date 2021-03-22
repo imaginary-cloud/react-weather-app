@@ -1,10 +1,10 @@
 import React from "react";
 import { makeStyles } from "@material-ui/core/styles";
-import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import WeatherCard from "./WeatherCard";
 import data from "./data/example_data_location_request.json";
+import FullWeatherCard from "./FullWeatherCard";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -30,7 +30,7 @@ export default function WeatherDisplay() {
         {weatherdata}
       </Grid>
       <Grid item xs={12}>
-        <Paper className={classes.paper}>xs=12</Paper>
+        <FullWeatherCard></FullWeatherCard>
       </Grid>
     </Grid>
   );
