@@ -5,6 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import Typography from "@material-ui/core/Typography";
 import Moment from "moment";
+import InfoDisplay from "./InfoDisplay";
 
 const useStyles = makeStyles({
   root: {
@@ -50,7 +51,7 @@ export default function FullWeatherCard({ selectedData }) {
             alignItems="center"
             className={classes.temp}
           >
-            <Typography variant="h4" component="h3" align="right">
+            <Typography variant="h2" component="h3" align="right">
               {selectedData.the_temp.toFixed(2)} ºC
             </Typography>
           </Grid>
@@ -76,46 +77,31 @@ export default function FullWeatherCard({ selectedData }) {
               alt={selectedData.weather_state_name}
             />
           </Grid>
-          <Grid item xs={4}>
-            <Typography variant="p" component="p" align="center">
-              Wind speed
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              {selectedData.wind_speed.toFixed(2)}
-            </Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography variant="p" component="p" align="center">
-              Wind direction
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              {selectedData.wind_direction.toFixed(2)}
-            </Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography variant="p" component="p" align="center">
-              Wind direction compass
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              {selectedData.wind_direction_compass}
-            </Typography>
-          </Grid>
-          <Grid item xs={4}>
-            <Typography variant="p" component="p" align="center">
-              Air pressure
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              {selectedData.air_pressure.toFixed(2)}
-            </Typography>
-          </Grid>
-          <Grid item xs={4} className={classes.pos}>
-            <Typography variant="p" component="p" align="center">
-              Humidity
-            </Typography>
-            <Typography variant="p" component="p" align="center">
-              {selectedData.humidity.toFixed(2)}
-            </Typography>
-          </Grid>
+          <InfoDisplay
+            title="Wind speed"
+            value={selectedData.wind_speed.toFixed(2)}
+            size={4}
+          ></InfoDisplay>
+          <InfoDisplay
+            title="Wind direction"
+            value={selectedData.wind_direction.toFixed(2)}
+            size={4}
+          ></InfoDisplay>
+          <InfoDisplay
+            title="Wind direction compass"
+            value={selectedData.wind_direction_compass}
+            size={4}
+          ></InfoDisplay>
+          <InfoDisplay
+            title="Air pressure"
+            value={selectedData.air_pressure.toFixed(2)}
+            size={4}
+          ></InfoDisplay>
+          <InfoDisplay
+            title="Humidity"
+            value={selectedData.humidity.toFixed(2)}
+            size={4}
+          ></InfoDisplay>
         </Grid>
       </CardContent>
     </Card>
