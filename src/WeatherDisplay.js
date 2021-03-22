@@ -4,6 +4,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import WeatherCard from "./WeatherCard";
+import data from "./data/example_data_location_request.json";
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -14,6 +15,10 @@ const useStyles = makeStyles(theme => ({
 export default function WeatherDisplay() {
   const classes = useStyles();
 
+  const weatherdata = data.consolidated_weather.slice(0, 5).map(data => {
+    return <WeatherCard></WeatherCard>;
+  });
+
   return (
     <Grid container spacing={3} className={classes.root}>
       <Grid item xs={12}>
@@ -22,11 +27,7 @@ export default function WeatherDisplay() {
         </Typography>
       </Grid>
       <Grid container item xs={12} justify="space-between">
-        <WeatherCard></WeatherCard>
-        <WeatherCard></WeatherCard>
-        <WeatherCard></WeatherCard>
-        <WeatherCard></WeatherCard>
-        <WeatherCard></WeatherCard>
+        {weatherdata}
       </Grid>
       <Grid item xs={12}>
         <Paper className={classes.paper}>xs=12</Paper>
