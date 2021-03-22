@@ -21,7 +21,7 @@ export default function WeatherDisplay() {
           Lisbon
         </Typography>
       </Grid>
-      <Grid item xs={12}>
+      <Grid container item xs={12} justify="space-between">
         <WeatherCard></WeatherCard>
         <WeatherCard></WeatherCard>
         <WeatherCard></WeatherCard>
