@@ -1,6 +1,6 @@
 # Table of contents
 
-* [Setup](#setup) - General instructions to install Node v15;
+* [Setup](#setup) - General instructions to install Node 16;
 * [Bootstrapping](#bootstrapping) - Instructions to get the application running;
 * [A few goodies](#a-few-goodies) - Brief list of useful packages;
 * [Building a Weather app](#building-a-weather-app) - Detailed description of the desired functionallities;
@@ -12,20 +12,20 @@ Make sure you have Node v15 installed and ready to go, either download it direct
 Follow the next set of instructions to complete your setup with `nvm`.
 
 ## NVM
-### Install Node v15:
+### Install Node v16:
 ```bash
-nvm install 15.2.0
+nvm install 16.6.2
 ```
 
-### Select Node v15
+### Select Node v16
 ```bash
-nvm use 15.2.0
+nvm use 16.6.2
 ```
 
-### Validate that Node v15 is installed and available
+### Validate that Node v16 is installed and available
 ```bash
 node --version
-> v15.2.0
+> v16.6.2
 ```
 ### Install npx
 ```bash
@@ -34,8 +34,12 @@ npm install -g npx
 
 # Bootstrapping
 ## Create a React application
+[`create-react-app`](https://reactjs.org/docs/create-a-new-react-app.html) is a Node package curated by Facebook, that can be used to create a new React project, with the required support scripts and dependencies.
+
+Through `npx` we able to download and execute the package in a single action to create a new react project:
+
 ```bash
-npx create-react-app weather-app
+npx create-react-app@4.0.3 weather-app
 ```
 Note: On the first time npx will ask you to install the ***create-react-app*** package. Just click ***y*** and it will install and create your first react app.
 
@@ -47,13 +51,9 @@ Please take a few minutes browsing the generated files inside weather-app folder
 * `README.me` - Description of the generated project.
 
 ## Launching the application
-### Installing dependencies
-Before we launch our application, ensure that you have React v16 installed. By default, `create-react-app` creates a React v17 application. This version doesn't bring anything _new_, so we won't miss anything by downgrading to React v16, which we need in order to use Material-UI.
-```bash
-npm install react@^16.14.0 react-dom@16.14.0
-```
 
 ### Lunching our react application
+
 We can now run the application on development mode.
 ```bash
 npm start
@@ -66,65 +66,50 @@ The page will reload if you make any changes and will show any errors in the bro
 # A few goodies
 Before we start hacking away our weather application, we will take advantage of a few packages that will speed up our development.
 
-## Install **Moment**
-[Moment](https://momentjs.com/) is the most used package to handle and format dates.
-```bash
-npm install moment
-```
-
-Usage example
-```JavaScript
-import moment from 'moment';
-
-const date = new Date(); // "Mon Nov 15 2020 11:11:02 GMT+0000 (Western European Standard Time)"
-moment(date).format('MMMM Do YYYY, h:mm:ss a'); // "November 15th 2020, 11:11:02 pm"
-```
-
-## Install **Material-UI**
-[Material](https://material-ui.com/) is a well known and very popular library of polished UI components that can easily be reused.
+## Install **Material UI**
+[**Material UI**](https://mui.com/) is a well known and very popular library of polished UI components that can easily be reused.
 All components follow an underlying theme, keeping our application with a consistent look and feel.
 
 ```bash
-npm install @material-ui/core @material-ui/icons @material-ui/lab
+npm install @mui/material@5.0.2 @emotion/react@11.4.1 @emotion/styled@11.3.0
 ```
 
 Usage example:
 ```JSX
-import React from 'react';
-import { makeStyles } from '@material-ui/core/styles';
-import Button from '@material-ui/core/Button';
-import Card from '@material-ui/core/Card';
-import CardActions from '@material-ui/core/CardActions';
-import CardContent from '@material-ui/core/CardContent';
-import Typography from '@material-ui/core/Typography';
+import * as React from 'react';
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import Card from '@mui/material/Card';
+import CardActions from '@mui/material/CardActions';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
 
-const useStyles = makeStyles({
-  title: {
-    fontSize: 14,
-  },
-  footer: {
-    fontSize: 8,
-  },
-});
+const Title = styled(Typography)(() => `
+  fontSize: 18;
+  color: black;
+`)
 
-export default function SimpleCard() {
-  const classes = useStyles();
+const Footer = styled('p')(() => `
+  fontSize: 8;
+  color: grey;
+`)
 
+export function SimpleCard() {
   return (
     <Card>
       <CardContent>
-        <Typography className={classes.title}>
+        <Title variant="h1">
           Title
-        </Typography>
+        </Title>
         <Typography variant="h5" component="h2" gutterBottom>
           Subtitle
         </Typography>
         <Typography color="textSecondary">
           Main content of the card
         </Typography>
-        <Typography className={classes.footer} variant="body2" component="p">
+        <Footer variant="body2" component="p">
           A footer note
-        </Typography>
+        </Footer>
       </CardContent>
       <CardActions>
         <Button size="small">Call to action</Button>
@@ -132,14 +117,36 @@ export default function SimpleCard() {
     </Card>
   );
 };
+
 ```
 
-Material-UI brings along dozens of components that cover a fairly amount of scenarios and the following root components will be quite useful during our development:
+**Material UI** brings along dozens of components that cover a fairly amount of scenarios and the following root components will be quite useful during our development:
 
-* [Autocomplete](https://material-ui.com/components/autocomplete) - Input with suggestions;
-* [Card](https://material-ui.com/components/cards/) - Material-UI's root Card component;
-* [Grid](https://material-ui.com/components/grid/) - Easy manage a 12 columns layout;
-* [Typography](https://material-ui.com/components/typography/) - Wrapper for all kind of text, with a huge set of variants to fit titles, paragraphs, etc;
+* [styled](https://mui.com/system/styled/) - Utility function to style existing components, like Typography, or dom elements, like paragraphs;
+* [Autocomplete](https://mui.com/components/autocomplete/) - Input with suggestions;
+* [Card](https://mui.com/components/cards/) - **Material UI**'s root Card component;
+* [Grid](https://mui.com/components/grid/) - Easy manage a 12 columns layout;
+* [Typography](https://mui.com/components/typography/) - Component for all kind of text, with a huge set of variants to fit titles, paragraphs, etc;
+
+
+## Install **date-fns** to handle dates
+[**date-fns**](https://date-fns.org/) is a popular package to handle and format dates.
+```bash
+npm install date-fns@2.25.0
+```
+
+Usage example
+```JavaScript
+import { format, parseISO } from 'date-fns'
+
+const date = new Date(); // "Mon Nov 18 2021 21:20:02 GMT+0000 (Western European Standard Time)"
+
+format(date, 'EEE d MMMM, h:mm:ss a') // "Mon 18 October, 9:20:02 PM"
+format(parseISO("2021-11-18"), 'MMMM do yyyy') // "November 18th 2021"
+```
+
+More details about the available _formats_ can be found on  [**date-fns**'s docs](https://date-fns.org/v2.25.0/docs/format).
+
 
 # Building a Weather app
 Our weather app will consist of an [SPA](https://en.wikipedia.org/wiki/Single-page_application) that will display the current forecast details and the next few days' forecast, for a selected location.
@@ -168,7 +175,7 @@ These tips are only tips and nothing more, feel free to explore Material-UI's co
 ## Setting up a layout
 Before jumping into more concrete blocks of our application we have to setup a general layout, it will work as the foundations of the interface and split it into sections where we will place the other elements.
 
-[Grid](https://material-ui.com/components/grid/) from Material-UI is quite handy to achieve such behavior. It creates a wrapper container with 12 columns, allowing a quick establishment of sections with a fixed set of columns for a specified resolution. Grid will adjust its sub-components to fit the current resolution following the provided props.
+[Grid](https://mui.com/components/grid/) from Material-UI is quite handy to achieve such behavior. It creates a wrapper container with 12 columns, allowing a quick establishment of sections with a fixed set of columns for a specified resolution. Grid will adjust its sub-components to fit the current resolution following the provided props.
 
 
 ## Searching for a location
@@ -176,7 +183,7 @@ This element consist of an input to type a location.
 
 It will guide our user, displaying suggestions of locations that suit the provide input.
 
-[Material-UI's Autocomplete](https://material-ui.com/components/autocomplete) component suits this task. It is capable of providing suggestions from a existing source and filtering them to match the input. Also provides a mechanism to establish the behavior for click actions.
+[**Material UI**'s Autocomplete](https://mui.com/components/autocomplete/) component suits this task. It is capable of providing suggestions from a existing source and filtering them to match the input. Also provides a mechanism to establish the behavior for click actions.
 
 ## Displaying the forecast for the next few days
 Upon selecting a location trough the search, this section should render a set o elements to display the forecast for the next 5 days.
@@ -190,7 +197,7 @@ This should display a summary, with the following information:
 
 The forecast for the next 5 days can be found in the sample file, `weatherReports.json`, in the attribute `consolidated_weather`.
 
-[Card](https://material-ui.com/components/cards/) component are simple and effective ways of displaying this kind of information.
+[Card](https://mui.com/components/cards/) component are simple and effective ways of displaying this kind of information.
 
 ## Displaying detailed view for today's forecast
 This section should display the details of today's forecast, with all the information available, from current temperature to degree of humidity.
@@ -202,8 +209,7 @@ Until now, our forecast comes only from the sample files, but ideally, we should
 
 MetaWeather API doesn't have [CORS](https://en.wikipedia.org/wiki/Cross-origin_resource_sharing) enabled, so our browser will refuse to fetch data from it. As a work around, we can use [`local-cors-proxy`](https://github.com/garmeeh/local-cors-proxy#readme) to proxy the request and trick our browser.
 ```bash
-npm install -g local-cors-proxy
-lcp --origin http://localhost:3000 --proxyUrl https://www.metaweather.com
+npx local-cors-proxy --origin http://localhost:3000 --proxyUrl https://www.metaweather.com
 ```
 
 In order to perform request to MetaWeather, [axios](https://github.com/axios/axios#axios) is definitely the right tool for the job.
@@ -211,16 +217,18 @@ In order to perform request to MetaWeather, [axios](https://github.com/axios/axi
 [react-query](https://github.com/tannerlinsley/react-query#visit-react-querytanstackcom-for-docs-guides-api-and-more) streamlines the usage of axios, so that it works as any other hook.
 
 ```bash
-npm install axios^0.21 react-query@^2
+npm install axios@0.23.0 react-query@3.27.0
 ```
 
 Simple example, performing a request to MetaWeather to fetch a locations data through its _woeid_:
 
 ```JavaScript
 import axios from 'axios';
-import { useQuery } from 'react-query';
+import { QueryClient, QueryClientProvider, useQuery } from 'react-query';
 
-export default function ForecastLocationDetails({ woeid }) {
+const queryClient = new QueryClient();
+
+function ForecastLocationDetails({ woeid }) {
   const {
     data,
     isLoading,
@@ -249,6 +257,17 @@ export default function ForecastLocationDetails({ woeid }) {
       <h2>{`${data.consolidated_weather[0].the_temp}º`}</h2>
     </>
   );
+}
+
+
+export default function App() {
+  const woeid = "638242" // Berlin
+
+  return (
+    <QueryClientProvider client={queryClient}>
+      <ForecastLocationDetails woeid={woeid}/>
+    </QueryClientProvider>
+  )
 }
 ```
 
